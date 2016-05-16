@@ -146,6 +146,10 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="Bell\Uuid\Uuid.hpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Bell\Uuid\Uuid.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
