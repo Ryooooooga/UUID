@@ -17,6 +17,9 @@
     <ClInclude Include="Bell\Uuid\Uuid.hpp">
       <Filter>Bell\Uuid</Filter>
     </ClInclude>
+    <ClInclude Include="Bell\ArrayView.hpp">
+      <Filter>Bell</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Bell\Uuid\Uuid.cpp">
