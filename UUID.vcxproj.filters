@@ -25,5 +25,8 @@
     <ClCompile Include="Bell\Uuid\Uuid.cpp">
       <Filter>Bell\Uuid</Filter>
     </ClCompile>
+    <ClCompile Include="Main.cpp">
+      <Filter>Lib</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>

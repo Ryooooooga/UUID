@@ -25,22 +25,22 @@ namespace Bell { namespace Uuid_ {
 			std::uint32_t v2 = mt();
 			std::uint32_t v3 = mt();
 
-			uuid[ 0] = static_cast<std::uint8_t>((v0 >>  0) & 0xff);
-			uuid[ 1] = static_cast<std::uint8_t>((v0 >>  8) & 0xff);
-			uuid[ 2] = static_cast<std::uint8_t>((v0 >> 16) & 0xff);
-			uuid[ 3] = static_cast<std::uint8_t>((v0 >> 24) & 0xff);
-			uuid[ 4] = static_cast<std::uint8_t>((v1 >>  0) & 0xff);
-			uuid[ 5] = static_cast<std::uint8_t>((v1 >>  8) & 0xff);
-			uuid[ 6] = static_cast<std::uint8_t>((v1 >> 16) & 0x0f | 0x40);
-			uuid[ 7] = static_cast<std::uint8_t>((v1 >> 24) & 0xff);
-			uuid[ 8] = static_cast<std::uint8_t>((v2 >>  0) & 0xbf | 0x80);
-			uuid[ 9] = static_cast<std::uint8_t>((v2 >>  8) & 0xff);
-			uuid[10] = static_cast<std::uint8_t>((v2 >> 16) & 0xff);
-			uuid[11] = static_cast<std::uint8_t>((v2 >> 24) & 0xff);
-			uuid[12] = static_cast<std::uint8_t>((v3 >>  0) & 0xff);
-			uuid[13] = static_cast<std::uint8_t>((v3 >>  8) & 0xff);
-			uuid[14] = static_cast<std::uint8_t>((v3 >> 16) & 0xff);
-			uuid[15] = static_cast<std::uint8_t>((v3 >> 24) & 0xff);
+			uuid[ 0] = static_cast<std::uint8_t>((v0 >> 24) & 0xff);
+			uuid[ 1] = static_cast<std::uint8_t>((v0 >> 16) & 0xff);
+			uuid[ 2] = static_cast<std::uint8_t>((v0 >>  8) & 0xff);
+			uuid[ 3] = static_cast<std::uint8_t>((v0 >>  0) & 0xff);
+			uuid[ 4] = static_cast<std::uint8_t>((v1 >> 24) & 0xff);
+			uuid[ 5] = static_cast<std::uint8_t>((v1 >> 16) & 0xff);
+			uuid[ 6] = static_cast<std::uint8_t>((v1 >>  8) & 0x0f | 0x40);
+			uuid[ 7] = static_cast<std::uint8_t>((v1 >>  0) & 0xff);
+			uuid[ 8] = static_cast<std::uint8_t>((v2 >> 24) & 0x0f | 0x80);
+			uuid[ 9] = static_cast<std::uint8_t>((v2 >> 16) & 0xff);
+			uuid[10] = static_cast<std::uint8_t>((v2 >>  8) & 0xff);
+			uuid[11] = static_cast<std::uint8_t>((v2 >>  0) & 0xff);
+			uuid[12] = static_cast<std::uint8_t>((v3 >> 24) & 0xff);
+			uuid[13] = static_cast<std::uint8_t>((v3 >> 16) & 0xff);
+			uuid[14] = static_cast<std::uint8_t>((v3 >>  8) & 0xff);
+			uuid[15] = static_cast<std::uint8_t>((v3 >>  0) & 0xff);
 		}
 
 	}
@@ -50,15 +50,31 @@ namespace Bell { namespace Uuid_ {
 	{
 		switch (ver)
 		{
-		case Version::RandomNumberBased:
-			generateRandom(uuid_);
-			break;
+			case Version::RandomNumberBased:
+				generateRandom(uuid_);
+				break;
 
-		default:
-			assert(false && "unknown version");
-			break;
+			default:
+				assert(false && "unknown version");
+				break;
 		}
 	}
 
+	//	バージョン
+	Uuid::Version Uuid::version() const noexcept
+	{
+		if ((uuid_[6] & 0xf0) == 0x10)
+			return Version::Version1;
+		else if ((uuid_[6] & 0xf0) == 0x20)
+			return Version::Version2;
+		else if ((uuid_[6] & 0xf0) == 0x30)
+			return Version::Version3;
+		else if ((uuid_[6] & 0xf0) == 0x40)
+			return Version::Version4;
+		else if ((uuid_[6] & 0xf0) == 0x50)
+			return Version::Version5;
+		else
+			return Version::Unknown;
+	}
 
 }}	//	namespace Bell::Uuid_
