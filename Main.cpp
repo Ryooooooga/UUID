@@ -7,11 +7,11 @@
 // http://www.boost.org/LICENSE_1_0.txt)
 //=====================================================================
 
-#include "Bell/Uuid/Uuid.hpp"
+#include "Bell/Uuids/Uuid.hpp"
 
 int main() {
 	for (int i = 0; i < 16; i++)
 	{
-		Bell::Uuid_::Uuid { Bell::Uuid_::Uuid::Version::RandomNumberBased };
+		Bell::Uuids::Uuid { Bell::Uuids::Uuid::Version::RandomNumberBased };
 	}
 }

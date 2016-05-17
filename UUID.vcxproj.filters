@@ -9,24 +9,24 @@
       <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
       <Extensions>h;hh;hpp;hxx;hm;inl;inc;xsd</Extensions>
     </Filter>
-    <Filter Include="Bell\Uuid">
+    <Filter Include="Bell\Uuids">
       <UniqueIdentifier>{4cb4f341-3e4d-4e2d-a340-749e1ad8274f}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Bell\Uuid\Uuid.hpp">
-      <Filter>Bell\Uuid</Filter>
-    </ClInclude>
     <ClInclude Include="Bell\ArrayView.hpp">
       <Filter>Bell</Filter>
     </ClInclude>
+    <ClInclude Include="Bell\Uuids\Uuid.hpp">
+      <Filter>Bell\Uuids</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Bell\Uuid\Uuid.cpp">
-      <Filter>Bell\Uuid</Filter>
-    </ClCompile>
     <ClCompile Include="Main.cpp">
       <Filter>Lib</Filter>
+    </ClCompile>
+    <ClCompile Include="Bell\Uuids\Uuid.cpp">
+      <Filter>Bell\Uuids</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

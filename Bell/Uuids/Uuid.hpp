@@ -9,9 +9,9 @@
 
 #pragma once
 
-#include "../ArrayView.hpp"
+#include <array>
 
-namespace Bell { namespace Uuid_ {
+namespace Bell { namespace Uuids {
 
 	/**
 	 * @brief      UUID

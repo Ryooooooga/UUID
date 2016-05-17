@@ -11,7 +11,7 @@
 #include <cassert>
 #include "Uuid.hpp"
 
-namespace Bell { namespace Uuid_ {
+namespace Bell { namespace Uuids {
 
 	namespace {
 
@@ -33,7 +33,7 @@ namespace Bell { namespace Uuid_ {
 			uuid[ 5] = static_cast<std::uint8_t>((v1 >> 16) & 0xff);
 			uuid[ 6] = static_cast<std::uint8_t>((v1 >>  8) & 0x0f | 0x40);
 			uuid[ 7] = static_cast<std::uint8_t>((v1 >>  0) & 0xff);
-			uuid[ 8] = static_cast<std::uint8_t>((v2 >> 24) & 0x0f | 0x80);
+			uuid[ 8] = static_cast<std::uint8_t>((v2 >> 24) & 0x3f | 0x80);
 			uuid[ 9] = static_cast<std::uint8_t>((v2 >> 16) & 0xff);
 			uuid[10] = static_cast<std::uint8_t>((v2 >>  8) & 0xff);
 			uuid[11] = static_cast<std::uint8_t>((v2 >>  0) & 0xff);
